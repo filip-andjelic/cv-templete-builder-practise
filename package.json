@@ -1,0 +1,42 @@
+{
+  "name": "cv-template-builder-practise",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --mode development",
+    "dev": "webpack-dev-server --mode development",
+    "webpackProd": "webpack --mode production"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "@webpack-cli/serve": "^0.1.8",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
+    "npm-run-all": "^4.1.5",
+    "sass-loader": "^8.0.0"
+  },
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "file-system": "^2.2.2",
+    "fs": "^0.0.1-security",
+    "node-html-parser": "^1.2.4",
+    "node-minify": "^3.6.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^5.1.2",
+    "universal-cookie": "^4.0.2",
+    "video.js": "^7.6.6",
+    "videojs-youtube": "^2.6.0"
+  }
+}

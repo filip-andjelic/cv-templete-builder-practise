@@ -1,0 +1,52 @@
+{
+    "success": {
+        "status": "OK",
+        "error": false,
+        "message": "SERVER_RESPONSE_LOGIN",
+        "data": {
+            "user": {
+                "firstName": "Filip",
+                "lastName": "Andjelic"
+            },
+            "data": {
+                "groupName": "Grupa P3-1",
+                "startDate": "24.02.2020.",
+                "endDate": "06.04.2020.",
+                "courseName": "Plavi Kurs",
+                "coursePrice": "240",
+                "paidPrice": "240",
+                "colleagues": [{
+                    "name": "Marko Markovic",
+                    "progress": "22",
+                    "slackUrl": "",
+                    "email": "marko@oykos-hub.com",
+                    "githubUrl": "",
+                    "linkedinUrl": "",
+                    "groupName": "Grupa P3-1"
+                }, {
+                    "name": "Dunja Zivkovic",
+                    "progress": "42",
+                    "slackUrl": "",
+                    "email": "dunja@oykos-hub.com",
+                    "githubUrl": "",
+                    "linkedinUrl": "",
+                    "groupName": "Grupa P3-1"
+                }, {
+                    "name": "Jovan Petrovic",
+                    "progress": "22",
+                    "slackUrl": "",
+                    "email": "jovan@oykos-hub.com",
+                    "githubUrl": "",
+                    "linkedinUrl": "",
+                    "groupName": "Grupa P3-1"
+                }]
+            }
+        }
+    },
+    "error": {
+        "status": "OK",
+        "error": true,
+        "message": "SERVER_RESPONSE_LOGIN_FAILED",
+        "data": {}
+    }
+}

@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 // Internal dependencies
 import Button from './button';
+import Header from './header';
+import "../styles/main.css";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -16,6 +18,7 @@ export default class App extends React.Component {
             isComponentVisible: true,
             text: 'Button Text #1'
         };
+
     }
 
     handleElementClick(component, e) {
@@ -32,6 +35,7 @@ export default class App extends React.Component {
         const nekiState = this.state.nekiState;
 
         return (<div id="App" onClick={(e) => component.handleElementClick(component, e)}>
+            <Header />
             <h1>Neki tekst</h1>
             <h2>{this.props.nekiProperti}</h2>
 

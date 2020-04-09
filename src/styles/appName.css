@@ -1,0 +1,6 @@
+.appName {
+    text-align: center;
+}
+.appName > h2:nth-child(2) {
+    text-transform: uppercase;
+}

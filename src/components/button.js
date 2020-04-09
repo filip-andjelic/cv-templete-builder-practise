@@ -4,17 +4,26 @@ import React from "react";
 
 export default class Button extends React.Component {
     constructor(props) {
-        super(props);
+        super ( props );
 
-        this.state = {};
+        this.state = {
+            class : "",
+            href : "www.google.me"
+        };
+    }
+
+    click = () => {
+        (e) => {
+            if (this.props.clickCallback) {
+                this.props.clickCallback ();
+            }
+        }
+            this.setState({class : "clicked"});
+
     }
 
     render() {
-        return (<button onClick={(e) => {
-            if (this.props.clickCallback) {
-                this.props.clickCallback();
-            }
-        }}>
+        return (<button onClick={this.click} className={this.state.class}>
             {this.props.buttonText}
         </button>);
     }

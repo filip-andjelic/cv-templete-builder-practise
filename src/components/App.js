@@ -23,7 +23,8 @@ export default class App extends React.Component {
         
         return (<div>
                 <Button text="Log in" backgroundColor="blue" />
-                <Button text="Sign up" backgroundColor="grey"/>
+                <Button text="Sign up" backgroundColor="grey"/> 
+                <Button text="Quit" backgroundColor="yellow"/>
         </div>);
     }
 };

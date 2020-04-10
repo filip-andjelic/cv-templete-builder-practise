@@ -4,27 +4,27 @@ import React from "react";
 
 export default class Button extends React.Component {
     constructor(props) {
-        super ( props );
+        super(props);
 
-        this.state = {
-            class : "",
-            href : "www.google.me"
-        };
-    }
-
-    click = () => {
-        (e) => {
-            if (this.props.clickCallback) {
-                this.props.clickCallback ();
-            }
-        }
-            this.setState({class : "clicked"});
-
+        this.state = {};
     }
 
     render() {
-        return (<button onClick={this.click} className={this.state.class}>
-            {this.props.buttonText}
+        const buttonStyle = {
+            backgroundColor: this.props.backgroundColor,
+            padding: "10px",
+            borderRadius: "8px"
+        };
+        return (<button
+            style={buttonStyle}
+            className="uppercase quicksand"
+            onClick={() => {
+                if (this.props.handleClick) {
+                    this.props.handleClick();
+                }
+            }}
+        >
+            {this.props.text}
         </button>);
     }
 };

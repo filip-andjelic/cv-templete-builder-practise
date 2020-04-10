@@ -32,19 +32,25 @@ export default class App extends React.Component {
         };
 
         return (<div id="App" className="grow-1 flex">
-            <Button
-                text="Log in"
-                backgroundColor="blue"
-                handleClick={() => {
-                    alert('clicked');
-                }}
-            />
-            <Button text="Sign up" backgroundColor="grey"/>
-            <Button text="Quit" backgroundColor="yellow"/>
+            {
+                /*
+                <Button
+                    text="Log in"
+                    backgroundColor="blue"
+                    handleClick={() => {
+                        alert('clicked');
+                    }}
+                />
+                <Button text="Sign up" backgroundColor="grey"/>
+                <Button text="Quit" backgroundColor="yellow"/>
+                */
+            }
+
             <Sidebar
                 userEmail={this.state.userEmail}
                 isRemembered={this.state.isRemembered}
             />
+
             <LandingScreen data={messages} test={'test'}/>
         </div>);
     }

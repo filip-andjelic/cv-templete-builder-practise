@@ -6,8 +6,11 @@ import {
     Route,
 } from "react-router-dom";
 // Internal dependencies
+import LandingScreen from "./LandingScreen";
 import Button from './button';
-import "../styles/main.css"
+import "../style/layout.css";
+import "../style/text.css";
+import "../style/colors.css";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -17,8 +20,13 @@ export default class App extends React.Component {
     }
 
     render() {
+        const component = this;
+        const messages = {
+            mainHeader: 'Hello friend',
+            subHeader: 'Ready to impress some HR managers with your astounding online CV'
+        };
 
-        return (<div>
+        return (<div id="App" className="grow-1 flex">
             <Button
                 text="Log in"
                 backgroundColor="blue"
@@ -28,6 +36,8 @@ export default class App extends React.Component {
             />
             <Button text="Sign up" backgroundColor="grey"/>
             <Button text="Quit" backgroundColor="yellow"/>
+
+            <LandingScreen data={messages} test={'test'}/>
         </div>);
     }
 };

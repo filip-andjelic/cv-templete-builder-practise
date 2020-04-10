@@ -19,7 +19,7 @@ export default class App extends React.Component {
     }
 
     render() {
-        return (<div>
+        return (<div style={{background: "url('assets/image/blue-ice.jpg')", backgroundSize: "cover"}}>
                 <Sidebar userEmail={this.props.userEmail} isRemembered={this.props.isRemembered}/>
             </div>
         )

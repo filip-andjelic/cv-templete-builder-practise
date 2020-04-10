@@ -9,15 +9,21 @@ export default class Button extends React.Component {
         this.state = {};
     }
 
-    
-
     render() {
         const buttonStyle = {
             backgroundColor: this.props.backgroundColor,
             padding: "10px",
-            borderRadius: "20%"
+            borderRadius: "8px"
         };
-        return (<button style={buttonStyle}>
+        return (<button
+            style={buttonStyle}
+            className="uppercase quicksand"
+            onClick={() => {
+                if (this.props.handleClick) {
+                    this.props.handleClick();
+                }
+            }}
+        >
             {this.props.text}
         </button>);
     }

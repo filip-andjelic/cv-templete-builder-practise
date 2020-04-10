@@ -13,6 +13,7 @@ export default class LogInForm extends React.Component {
         };
         this.updateEmail = this.updateEmail.bind(this);
         this.remember = this.remember.bind(this);
+        this.setCookie = this.setCookie.bind(this);
 
     }
     updateEmail(e) {
@@ -20,15 +21,22 @@ export default class LogInForm extends React.Component {
             emailValue: e.target.value
         });
     }
+    setCookie = (cname, cvalue, exdays)=> {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    };
 remember(){
         if(this.state.isRemembered===""){
             this.setState({isRemembered : "✓"})
-            document.cookie="email="+this.state.emailValue+";"
-            document.cookie="remembered=true"
+           // document.cookie="email="+this.state.emailValue+";"
+            this.setCookie('email', this.state.emailValue, 20)
+            this.setCookie('remembered', "true", 20)
         }else {
             this.setState({isRemembered : ""})
-            document.cookie="email=; "
-            document.cookie="remembered=false;"
+            this.setCookie('email', "", 1)
+            this.setCookie('remembered', "false", 1)
         }
 
     }

@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "Anton";
+    src: url('/assets/font/Anton-Regular.ttf');
+}
+@font-face {
+    font-family: "QuickSand";
+    src: url('/assets/font/Quicksand-VariableFont_wght.ttf');
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.anton {
+    font-family: Anton, 'Verdana';
+}
+.quicksand {
+    font-family: QuickSand, 'Verdana';
+}
+.tiny-text {
+    font-size: 12px;
+}
+.small-text {
+    font-size: 14px;
+}
+.normal-text {
+    font-size: 16px;
+}
+.medium-text {
+    font-size: 18px;
+}
+.big-text {
+    font-size: 20px;
+}
+.large-text {
+    font-size: 24px;
+}
+.gigant-text {
+    font-size: 50px;
+}
+.white-text {
+    color: #fff;
+}
+.text-center {
+    text-align: center;
+}
+.text-shadow-1 {
+    text-shadow: 0 11px 5px black;
+}
+p {
+    margin: 0;
+    padding: 0;
+}

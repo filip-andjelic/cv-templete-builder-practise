@@ -10,6 +10,9 @@ input {
     color: #dcdcdc;
     padding: 15px;
 }
+input[type=email], input[type=password]{
+    cursor: url(/assets/image/cursor.cur), default;
+}
  input[type=checkbox]{
      float: right;
      width: auto;

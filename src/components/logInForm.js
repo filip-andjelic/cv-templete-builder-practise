@@ -1,7 +1,9 @@
 // External dependencies
 import React from "react";
+import {Redirect} from "react-router-dom";
 // Internal dependencies
 import {Utility} from "../services/utility.service";
+import Button from './button';
 import "../styles/logInForm.css";
 
 export default class LogInForm extends React.Component {
@@ -40,6 +42,10 @@ export default class LogInForm extends React.Component {
     render() {
         return (
             <div className="log-in-form">
+                {
+                    this.state.redirectUrl && <Redirect to={this.state.redirectUrl} />
+                }
+
                 <input value={this.state.emailValue}
                        onChange={this.updateEmail}
                        type="email"
@@ -50,6 +56,16 @@ export default class LogInForm extends React.Component {
                     <span>Remember me</span>
                     <div id="remember-box" onClick={this.remember}>{this.state.isRemembered}</div>
                 </div>
+
+                <Button
+                    text="Log In"
+                    backgroundColor="blue"
+                    handleClick={() => {
+                        this.setState({
+                            redirectUrl: '/templates'
+                        });
+                    }}
+                />
             </div>
         )
     }

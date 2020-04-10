@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 // Internal dependencies
 import LandingScreen from "./LandingScreen";
-import Button from './button';
 import Sidebar from './sidebar';
 import {Utility} from "../services/utility.service";
 import "../style/layout.css";
@@ -32,26 +31,23 @@ export default class App extends React.Component {
         };
 
         return (<div id="App" className="grow-1 flex">
-            {
-                /*
-                <Button
-                    text="Log in"
-                    backgroundColor="blue"
-                    handleClick={() => {
-                        alert('clicked');
-                    }}
+            <Router>
+                <Sidebar
+                    userEmail={this.state.userEmail}
+                    isRemembered={this.state.isRemembered}
                 />
-                <Button text="Sign up" backgroundColor="grey"/>
-                <Button text="Quit" backgroundColor="yellow"/>
-                */
-            }
 
-            <Sidebar
-                userEmail={this.state.userEmail}
-                isRemembered={this.state.isRemembered}
-            />
-
-            <LandingScreen data={messages} test={'test'}/>
+                <Switch>
+                    <Route exact path="/templates">
+                        <div>
+                            TEMPLATES SCREEN
+                        </div>
+                    </Route>
+                    <Route exact path="/">
+                        <LandingScreen data={messages} test={'test'}/>
+                    </Route>
+                </Switch>
+            </Router>
         </div>);
     }
 };

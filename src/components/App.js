@@ -19,7 +19,8 @@ export default class App extends React.Component {
 
         this.state = {
             isRemembered: Utility.getCookie("remembered"),
-            userEmail: Utility.getCookie("email")
+            userEmail: Utility.getCookie("email"),
+            password: Utility.getCookie("password")
         };
     }
 
@@ -35,6 +36,7 @@ export default class App extends React.Component {
                 <Sidebar
                     userEmail={this.state.userEmail}
                     isRemembered={this.state.isRemembered}
+                    password = {this.state.password}
                 />
 
                 <Switch>

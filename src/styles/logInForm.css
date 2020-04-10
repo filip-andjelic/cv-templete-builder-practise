@@ -1,49 +1,33 @@
-input {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-    font-size:16px;
-    height: 40px;
-    border: 2px solid #064976;
-    border-radius: 5px;
-    background-color: #696a6bcc;;
-    color: #dcdcdc;
-    padding: 15px;
-}
-input[type=email], input[type=password]{
+
+input[type=email], input[type=password] {
     cursor: url(/assets/image/cursor.cur), default;
 }
- input[type=checkbox]{
-     float: right;
-     width: auto;
-     height: auto;
- }
- .remember {
-     color:#3880af;
-     display: flex;
-     justify-content: flex-end;
-     align-items: center;
-     text-transform: capitalize;
-     text-align: center;
-     font-size: x-large;
- }
-.remember > span{
-    font-size:14px;
+
+input[type=checkbox] {
+    float: right;
+    width: auto;
+    height: auto;
 }
+
+.remember {
+    color: #3880af;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 #remember-box {
-    width:30px;
-    height:30px;
-    border: 2px solid #064976;
-    border-radius: 5px;
-    background-color: #696a6b;
-    color: #dcdcdc;
-    margin-left: 20px;
+    width: 30px;
+    height: 30px;
+    margin:0 0 0 20px;
     align-items: center;
     cursor: pointer;
+    padding:0;
 }
+
 .log-in-form {
-    width:65%;
+    width: 65%;
 }
+
 ::placeholder {
     color: #dcdcdc;
 }

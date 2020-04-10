@@ -9,6 +9,9 @@
 .uppercase {
     text-transform: uppercase;
 }
+.capitalise {
+    text-transform: capitalize;
+}
 .anton {
     font-family: Anton, 'Verdana';
 }

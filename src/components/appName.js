@@ -1,7 +1,6 @@
 // External dependencies
 import React from "react";
 // Internal dependencies
-import "../styles/appName.css";
 
 export default class AppName extends React.Component {
     constructor(props) {
@@ -15,9 +14,9 @@ export default class AppName extends React.Component {
 
     render() {
         return (
-            <div className="appName">
-                <h2>{this.state.appDeveloper}</h2>
-                <h2>{this.state.appName}</h2>
+            <div className="appName text-center">
+                <h2 className="anton margin-5">{this.state.appDeveloper}</h2>
+                <h2 className="uppercase margin-5">{this.state.appName}</h2>
             </div>
         )
     }

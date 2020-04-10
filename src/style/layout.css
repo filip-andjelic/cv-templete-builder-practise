@@ -46,3 +46,12 @@ body {
 .margin-50 {
     margin: 50px;
 }
+.input {
+    display: block;
+    margin-bottom: 20px;
+    height: 40px;
+    border: 2px solid #064976;
+    border-radius: 5px;
+    color: #dcdcdc;
+    padding: 15px;
+}

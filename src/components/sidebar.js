@@ -13,12 +13,13 @@ export default class Sidebar extends React.Component {
 
     render() {
         return (
-            <div className="sidebar">
+            <div className="sidebar quicksand column">
                 <Logo/>
                 <AppName/>
                 <LogInForm
                     userEmail={this.props.userEmail}
                     isRemembered ={this.props.isRemembered}
+                    password = {this.props.password}
                 />
             </div>
         )

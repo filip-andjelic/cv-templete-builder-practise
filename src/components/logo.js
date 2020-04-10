@@ -5,17 +5,16 @@ import "../styles/logo.css";
 
 export default class Logo extends React.Component {
     constructor(props) {
-        super ( props );
+        super(props);
 
         this.state = {
-            src : "../assets/image/oykos logo.png"
+            src: "../assets/image/oykos logo.png"
         };
     }
 
     render() {
-
         return (
-                <img id="logo" src={this.state.src} />
+            <img id="logo" src={this.state.src}/>
         )
     }
 };

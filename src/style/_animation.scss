@@ -1,0 +1,354 @@
+@keyframes loaderBackgroundFill {
+  0% {
+    background: linear-gradient(180deg, rgba(23,133,182,1) 3%, rgba(7,52,77,1) 30%, rgba(7,52,77,1) 67%, rgba(7,52,77,1) 96%);
+    opacity: 0;
+    transform: scale3d(0, 0, 0);
+  }
+
+  15% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    background: linear-gradient(180deg, rgba(23,133,182,1) 17%, rgba(7,52,77,1) 51%, rgba(7,52,77,1) 78%, rgba(7,52,77,1) 96%);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    background: linear-gradient(180deg, rgba(23,133,182,1) 42%, rgba(7,52,77,1) 67%, rgba(7,52,77,1) 78%, rgba(7,52,77,1) 96%);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  80% {
+    background: linear-gradient(180deg, rgba(23,133,182,1) 70%, rgba(7,52,77,1) 86%, rgba(7,52,77,1) 93%, rgba(7,52,77,1) 100%);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  85% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+
+  100% {
+    background: linear-gradient(180deg, rgba(23,133,182,1) 89%, rgba(7,52,77,1) 98%, rgba(7,52,77,1) 99%, rgba(7,52,77,1) 100%);
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.background-fill {
+  animation-name: loaderBackgroundFill;
+}
+
+@keyframes flash {
+  from,
+  50%,
+  to {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.flash {
+  animation-name: flash;
+}
+
+@keyframes rotateFlash {
+  from {
+    transform-origin: center;
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0;
+  }
+
+  55% {
+    transform-origin: center;
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  to {
+    transform-origin: center;
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.rotateFlash {
+  animation-name: rotateFlash;
+}
+
+@keyframes rotate {
+  from {
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+
+  55% {
+    transform-origin: center;
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform-origin: center;
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation-name: rotate;
+}
+
+@keyframes rotateRevert {
+  from {
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+
+  55% {
+    transform-origin: center;
+    transform: rotate(-180deg);
+  }
+
+  to {
+    transform-origin: center;
+    transform: rotate(-360deg);
+  }
+}
+
+.rotateRevert {
+  animation-name: rotateRevert;
+}
+
+@keyframes bg-dark-3-to-theme-main-2 {
+  from {
+    background-color: $dark-3;
+  }
+
+  to {
+    background-color: $theme-main-2;
+  }
+}
+
+.bg-dark-3-to-theme-main-2 {
+  animation-name: bg-dark-3-to-theme-main-2;
+}
+
+@keyframes bg-theme-main-5-to-theme-main-2 {
+  from {
+    background-color: $theme-main-5;
+  }
+
+  to {
+    background-color: $theme-main-2;
+  }
+}
+
+.bg-theme-main-5-to-theme-main-2 {
+  animation-name: bg-theme-main-5-to-theme-main-2;
+}
+
+@keyframes opacity-20-to-80 {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+.opacity-20-to-80 {
+  animation-name: opacity-20-to-80;
+}
+
+@keyframes mild-swing {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+
+  30% {
+    top: -30px;
+    left: -20px;
+  }
+
+  50% {
+    top: 0px;
+    left: 0px;
+  }
+
+  70% {
+    top: 20px;
+    left: 30px;
+  }
+
+  to {
+    top: 0px;
+    left: 0px;
+  }
+}
+
+.mild-swing {
+  animation-name: mild-swing;
+}
+
+@keyframes mild-bg-swing {
+  0% {
+    background-position: 50% 50%;
+  }
+
+  20% {
+    background-position: 30% 40%;
+  }
+
+  80% {
+    background-position: 60% 70%;
+  }
+
+  to {
+    background-position: 50% 50%;
+  }
+}
+
+.mild-bg-swing {
+  animation-name: mild-bg-swing;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+  }
+}
+
+.slideInLeft {
+  animation-name: slideInLeft;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes zoomOut {
+  from {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale3d(0, 0, 0);
+  }
+}
+
+.zoomOut {
+  animation-name: zoomOut;
+}
+
+.transition-0-5-s {
+  transition: all 0.5s;
+}
+
+.animated {
+  animation-fill-mode: forwards;
+
+  &.linear {
+    animation-timing-function: linear;
+  }
+  &.speed-0-5-s {
+    animation-duration: 0.5s;
+  }
+
+  &.speed-1-5-s {
+    animation-duration: 1.5s;
+  }
+
+  &.speed-2-5-s {
+    animation-duration: 2.5s;
+  }
+
+  &.speed-3-5-s {
+    animation-duration: 3.5s;
+  }
+
+  &.speed-4-5-s {
+    animation-duration: 4.5s;
+  }
+
+  &.speed-5-5-s {
+    animation-duration: 5.5s;
+  }
+
+  &.speed-6-5-s {
+    animation-duration: 6.5s;
+  }
+
+  &.speed-7-5-s {
+    animation-duration: 7.5s;
+  }
+
+  &.speed-10-s {
+    animation-duration: 15s;
+  }
+
+  &.speed-15-s {
+    animation-duration: 15s;
+  }
+
+  &.delay-0-5-s {
+    animation-delay: 0.5s;
+  }
+
+  &.delay-1-5-s {
+    animation-delay: 1.5s;
+  }
+
+  &.delay-2-s {
+    animation-delay: 2s;
+  }
+
+  &.infinite {
+    animation-iteration-count: infinite;
+  }
+}

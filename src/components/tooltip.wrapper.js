@@ -1,5 +1,4 @@
 import React from "react";
-import "../style/tooltip.css";
 
 export default class TooltipWrapper extends React.Component {
     constructor(props) {
@@ -12,8 +11,7 @@ export default class TooltipWrapper extends React.Component {
         const caretClasses =
             'caret-wrapper table padding-10 margin-l-min-5 transition-0-5-s absolute '
             + this.props.position + ' ' + widthClass + ' ' + caretColor;
-        const classes =
-            'tooltip text-center transition-0-5-s bg-' + this.props.type;
+        const classes = 'tooltip text-center transition-0-5-s bg-' + this.props.type;
 
         return (<div className="tooltip-wrapper relative column justify-center">
             {

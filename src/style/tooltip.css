@@ -1,0 +1,30 @@
+.tooltip-wrapper .caret-wrapper:before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.tooltip-wrapper .caret-wrapper.top {
+    top: 0;
+    transform: translateY(-100%) !important;
+}
+
+.tooltip-wrapper .caret-wrapper.top:before {
+    border-top: 8px solid black;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top-color: inherit;
+    left: 50%;
+    top: calc(100% - 11px);
+    transform: translateX(-50%);
+}
+
+.tooltip-wrapper .tooltip {
+    border-radius: 4px;
+    padding: 5px 10px;
+    margin-left: -10px;
+    font-size: 13px;
+    font-weight: 900;
+}

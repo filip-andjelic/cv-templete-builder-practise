@@ -1,6 +1,19 @@
 .bg-grey-1 {
     background-color: #e3e3e355;
 }
+
 .bg-grey-2 {
     background-color: #696a6bcc;
+}
+
+.bg-important-2 {
+    background-color: red;
+}
+
+.important-2 {
+    color: red;
+}
+
+.border-top-important-2 {
+    border-top-color: red;
 }

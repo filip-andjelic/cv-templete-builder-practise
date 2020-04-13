@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const LOG_MODE = 0;
-const projectName = '';
+
 let configuration = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {

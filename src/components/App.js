@@ -12,6 +12,9 @@ import {Utility} from "../services/utility.service";
 import "../style/layout.css";
 import "../style/text.css";
 import "../style/colors.css";
+import "../style/normalize.css";
+import "../style/flex.css";
+import "../style/animation.css";
 
 export default class App extends React.Component {
     constructor(props) {

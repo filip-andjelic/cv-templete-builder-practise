@@ -16,7 +16,7 @@ class Notification extends Component {
         >
           <div className="tittle-wraper">
             <div className="description">{tittle}</div>
-            <i className="fas fa-react">a</i>
+            <i className={icon}></i>
           </div>
           {!!description && <div> {description} </div>}
         </div>

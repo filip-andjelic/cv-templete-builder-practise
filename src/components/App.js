@@ -57,6 +57,7 @@ export default class App extends React.Component {
     return (
       <div id="App" className="grow-1 flex">
         <Notification
+          icon="fa fa-cloud"
           tittle={tittle}
           type={type}
           duration={() => this.removeNotification()}

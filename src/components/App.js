@@ -10,6 +10,12 @@ import LandingScreen from "./LandingScreen";
 import Sidebar from './sidebar';
 import {Utility} from "../services/utility.service";
 import "../style/application.scss";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+
+library.add(fas);
+
 
 export default class App extends React.Component {
     constructor(props) {

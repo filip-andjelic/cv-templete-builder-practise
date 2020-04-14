@@ -1,17 +1,39 @@
 .notification-wrapper {
+  border-radius: 10px;
   position: absolute;
   border: 1px solid red;
   top: 15px;
   right: 15px;
   padding: 10px;
-  color: white;
+  color: #f1dbdb;
+  transition: 2s;
+
+  .tittle-wraper {
+    display: flex;
+    justify-content: space-between;
+
+    .tittle {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .descripton {
+      font-size: 13px;
+    }
+  }
 }
+// KAD IMA TYPE U STEJTU ONDA OVO
 .alertColor {
-  background: red;
+  opacity: 1;
+  background: #d04040a3;
+}
+// A KAD NEMA ONDA GONE
+.gone {
+  opacity: 0;
 }
 .midAlert {
-  background: orange;
+  background: rgba(255, 166, 0, 0.521);
 }
 .infoAlert {
-  background: blue;
+  background: rgba(0, 0, 255, 0.322);
 }

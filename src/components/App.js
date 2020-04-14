@@ -16,32 +16,38 @@ export default class App extends React.Component {
       isRemembered: Utility.getCookie("remembered"),
       userEmail: Utility.getCookie("email"),
       password: Utility.getCookie("password"),
-      alertText: "MESSAGE FROM ABOVE",
-      notification: "warning"
+      description: "THIS IS MESSAGE FROM OUR TEAM",
+      tittle: "warning",
+      type: "alertColor"
     };
   }
   colorMeassagePicker(alert) {
     if (alert == "warning") {
       this.setState({
-        alertText: "nije to bas najbolje"
-        //   alertColor:  "alertColor"
+        descripton: "nije to bas najbolje",
+        type: "alertColor"
       });
       return "alertColor";
     } else if (alert == "littlewarning") {
       this.setState({
-        alertText: "sad je bolje ali nije jos kako treba",
-        alertColor: "midAlert"
+        descripton: "sad je bolje ali nije jos kako treba",
+        type: "midAlert"
       });
     } else if (alert == "infowarning") {
       this.setState({
-        alertText: "sad je bas kako treba",
-        alertColor: "infoAlert"
+        descripton: "sad je bas kako treba",
+        type: "infoAlert"
       });
     }
+  }
+  removeNotification() {
+    this.setState({ type: "" });
   }
 
   render() {
     const component = this;
+    //  RESTRUKRUIRANUE STEJTA (state)
+    const { description, type, tittle } = component.state;
     const messages = {
       mainHeader: "Hello friend",
       subHeader:
@@ -51,10 +57,10 @@ export default class App extends React.Component {
     return (
       <div id="App" className="grow-1 flex">
         <Notification
-          description={component.state.notification}
-          type={() => this.colorMessagePicker(component.state.notification)}
-          duration={() => console.log("hi")}
-          text={component.state.alertText}
+          tittle={tittle}
+          type={type}
+          duration={() => this.removeNotification()}
+          description={description}
         />
         <Router>
           <Sidebar

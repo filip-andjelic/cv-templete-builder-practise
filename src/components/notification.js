@@ -5,15 +5,20 @@ class Notification extends Component {
     super(props);
   }
   render() {
+    // RESTRUKTUIRANJE PROPS-A
+    const { description, type, tittle, icon, duration } = this.props;
+    const widthOpacity = type ? type : "gone";
     return (
-      !!this.props.description && (
+      !!description && (
         <div
-          className={"notification-wrapper" + " " + this.props.type}
-          onClick={this.props.duration}
+          className={"notification-wrapper" + " " + widthOpacity}
+          onClick={duration}
         >
-          <i className="fas fa-engine-warning"></i>
-          <div>{this.props.description}</div>
-          {!!this.props.text && <div> {this.props.text} </div>}
+          <div className="tittle-wraper">
+            <div className="description">{tittle}</div>
+            <i className="fas fa-react">a</i>
+          </div>
+          {!!description && <div> {description} </div>}
         </div>
       )
     );

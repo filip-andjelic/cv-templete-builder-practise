@@ -16,8 +16,8 @@ export default class App extends React.Component {
       isRemembered: Utility.getCookie("remembered"),
       userEmail: Utility.getCookie("email"),
       password: Utility.getCookie("password"),
-      description: "THIS IS MESSAGE FROM OUR TEAM",
-      tittle: "warning",
+      description: "This is message to our team. Don't give up!!!",
+      tittle: "IMPORTANT",
       type: "alertColor"
     };
   }

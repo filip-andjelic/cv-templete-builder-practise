@@ -4,9 +4,12 @@
   border: 1px solid red;
   top: 15px;
   right: 15px;
+
   padding: 35px;
-  color: #f1dbdb;
+  color: #ffffff;
   transition: 2s;
+  width: 50%;
+  text-align: center;
 
   .tittle-wraper {
     display: flex;
@@ -25,7 +28,7 @@
 // KAD IMA TYPE U STEJTU ONDA OVO
 .alertColor {
   opacity: 1;
-  background: #d04040a3;
+  background: #e40000d4;
 }
 // A KAD NEMA ONDA GONE
 .gone {

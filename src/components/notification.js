@@ -18,7 +18,7 @@ class Notification extends Component {
             <div className="description">{tittle}</div>
             <i className={icon}></i>
           </div>
-          {!!description && <div> {description} </div>}
+          <div> {description} </div>
         </div>
       )
     );

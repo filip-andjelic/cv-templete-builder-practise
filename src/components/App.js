@@ -18,24 +18,24 @@ export default class App extends React.Component {
       password: Utility.getCookie("password"),
       description: "This is message to our team. Don't give up!!!",
       tittle: "IMPORTANT",
-      type: "alertColor"
+      type: "infoAlert"
     };
   }
   colorMeassagePicker(alert) {
-    if (alert == "warning") {
+    if (alert == "IMPORTANT") {
       this.setState({
-        descripton: "nije to bas najbolje",
+        descripton: "This is message to our team. Don't give up!!!",
         type: "alertColor"
       });
-      return "alertColor";
-    } else if (alert == "littlewarning") {
+    } else if (alert == "HONEST") {
       this.setState({
-        descripton: "sad je bolje ali nije jos kako treba",
+        descripton:
+          "Team, you are on the right way!!! Little more and you gona make some awesome things!!!",
         type: "midAlert"
       });
-    } else if (alert == "infowarning") {
+    } else if (alert == "RELAX") {
       this.setState({
-        descripton: "sad je bas kako treba",
+        descripton: "YOU ARE ALMOST DONE!!!CONGRATULATION!!!",
         type: "infoAlert"
       });
     }
@@ -48,6 +48,7 @@ export default class App extends React.Component {
     const component = this;
     //  RESTRUKRUIRANUE STEJTA (state)
     const { description, type, tittle } = component.state;
+
     const messages = {
       mainHeader: "Hello friend",
       subHeader:

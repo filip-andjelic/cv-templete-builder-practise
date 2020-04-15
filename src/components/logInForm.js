@@ -6,6 +6,7 @@ import {Utility} from "../services/utility.service";
 import Button from './button';
 import "../styles/logInForm.css";
 import TooltipWrapper from "./tooltip.wrapper";
+import {ApiService} from "../services/api.service";
 
 export default class LogInForm extends React.Component {
     constructor(props) {
@@ -61,7 +62,10 @@ export default class LogInForm extends React.Component {
             return;
         }
 
-        // @TODO Attempt Login server request
+        ApiService.endpoints.loginAttempt({
+            email: this.state.emailValue,
+            password: this.state.password
+        });
     }
 
     remember() {

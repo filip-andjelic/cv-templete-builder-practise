@@ -3,7 +3,7 @@
   .caret-wrapper {
 
     &.top {
-      top: 0;
+      top: -7px;
       transform: translateY(calc(-100% + 10px)) !important;
 
       &:before {

@@ -1,13 +1,8 @@
-import {UtilService} from "./util.service";
-import {ListenerService} from "./listener.service";
-import {StoreService} from "./store.service";
 import {ConstantsService} from "./constants.service";
 
 const urlBase = ConstantsService.URL_BASE;
 const endpointUrls = {
-    playerSettings: urlBase + 'video/playerSettings',
-    getIP: 'https://api.ipify.org?format=json',
-    loginAttempt: urlBase + 'loginAttempt'
+    loginAttempt: urlBase + 'registration-api.php'
 };
 
 /*
@@ -33,7 +28,6 @@ export const ApiService = {
             });
     },
     postRequest: (url, data) => {
-        //console.log('Data -> ', data);
         return fetch(url, {
             method: 'POST',
             headers: {
@@ -42,7 +36,6 @@ export const ApiService = {
             },
             body: JSON.stringify(data),
         }).then((data) => {
-            //console.log('SUCCESS -> ', data);
             if (!data) {
                 return false;
             }
@@ -87,62 +80,9 @@ export const ApiService = {
     },
     endpoints: {
         loginAttempt: (data) => {
-            return ApiService.returnPromise({
-                status: 'OK',
-                error: false,
-                message: 'SERVER_RESPONSE_LOGIN',
-                data: {
-                    "user": {
-                        "firstName": "Filip",
-                        "lastName": "Andjelic"
-                    },
-                    "data": {
-                        "groupName": "Grupa P3-1",
-                        "startDate": "24.02.2020.",
-                        "endDate": "06.04.2020.",
-                        "courseName": "Plavi Kurs",
-                        "coursePrice": "240",
-                        "paidPrice": "240",
-                        "colleagues": [{
-                            "name": "Marko Markovic",
-                            "progress": "22",
-                            "slackUrl": "",
-                            "email": "marko@oykos-hub.com",
-                            "githubUrl": "",
-                            "linkedinUrl": "",
-                            "groupName": "Grupa P3-1"
-                        }, {
-                            "name": "Dunja Zivkovic",
-                            "progress": "42",
-                            "slackUrl": "",
-                            "email": "dunja@oykos-hub.com",
-                            "githubUrl": "",
-                            "linkedinUrl": "",
-                            "groupName": "Grupa P3-1"
-                        }, {
-                            "name": "Jovan Petrovic",
-                            "progress": "22",
-                            "slackUrl": "",
-                            "email": "jovan@oykos-hub.com",
-                            "githubUrl": "",
-                            "linkedinUrl": "",
-                            "groupName": "Grupa P3-1"
-                        }]
-                    }
-                }
-            }, 1000);
-            return ApiService.postRequest(endpoints.loginAttempt, data).then((response) => {
+            return ApiService.postRequest(endpointUrls.loginAttempt, data).then((response) => {
 
             });
-        },
-        getIP: () => {
-            return ApiService.getRequest(endpointUrls.getIP).then((response) => {
-                // Store data in localStorage and update cached data.
-                StoreService.updateStoreData(response);
-            });
-        },
-        watchBeacon: (data) => {
-            navigator.sendBeacon(endpointUrls.watch, data);
         }
     }
 };

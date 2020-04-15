@@ -21,16 +21,17 @@ export default class App extends React.Component {
             isRemembered: Utility.getCookie("remembered"),
             userEmail: Utility.getCookie("email"),
             password: Utility.getCookie("password"),
-            description: "We had issue with reading data from our server, because it is on fire. Sorry for the inconvenience!",
-            title: "Fatal Error on Server",
-            type: "info-1",
-            showNotification: true
+            description: "",
+            title: "",
+            type: "",
+            icon: "",
+            showNotification: false
         };
     }
 
     render() {
         const component = this;
-        const {description, type, title} = component.state;
+        const {description, type, title, icon} = component.state;
 
         const messages = {
             mainHeader: "Hello friend",
@@ -42,7 +43,7 @@ export default class App extends React.Component {
             <div id="App" className="grow-1 flex">
                 {
                     !!this.state.showNotification && (<Notification
-                        icon="sign-in-alt"
+                        icon={icon}
                         title={title}
                         type={type}
                         hideHandle={() => this.setState({showNotification: false})}

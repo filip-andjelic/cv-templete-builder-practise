@@ -8,7 +8,7 @@ import LogInForm from "./logInForm";
 
 export default class Sidebar extends React.Component {
     constructor(props) {
-        super ( props );
+        super(props);
     }
 
     render() {
@@ -18,8 +18,8 @@ export default class Sidebar extends React.Component {
                 <AppName/>
                 <LogInForm
                     userEmail={this.props.userEmail}
-                    isRemembered ={this.props.isRemembered}
-                    password = {this.props.password}
+                    isRemembered={this.props.isRemembered}
+                    password={this.props.password}
                 />
             </div>
         )

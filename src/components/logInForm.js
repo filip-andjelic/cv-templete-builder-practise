@@ -6,7 +6,7 @@ import {Utility} from "../services/utility.service";
 import Button from './button';
 import "../styles/logInForm.css";
 import TooltipWrapper from "./tooltip.wrapper";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 
 export default class LogInForm extends React.Component {
@@ -137,22 +137,22 @@ export default class LogInForm extends React.Component {
                 </div>
 
                 <div id="buttons" className="flex space-around margin-t-200">
-                <Button
-                    icon="user-plus"
-                    text="Sign Up"
-                    backgroundColor="#ff000000"
-                    handleClick={() => {
-                        this.loginAttempt();
-                    }}
-                />
-                <Button
-                    icon="sign-in-alt"
-                    text="Log In"
-                    backgroundColor="#00b2ff"
-                    handleClick={() => {
-                        this.loginAttempt();
-                    }}
-                />
+                    <Button
+                        icon="user-plus"
+                        text="Sign Up"
+                        backgroundColor="#ff000000"
+                        handleClick={() => {
+                            this.loginAttempt();
+                        }}
+                    />
+                    <Button
+                        icon="sign-in-alt"
+                        text="Log In"
+                        backgroundColor="#00b2ff"
+                        handleClick={() => {
+                            this.loginAttempt();
+                        }}
+                    />
                 </div>
             </div>
         )

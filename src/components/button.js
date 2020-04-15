@@ -1,7 +1,7 @@
 // External dependencies
 import React from "react";
 // Internal dependencies
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export default class Button extends React.Component {
     constructor(props) {
@@ -13,7 +13,6 @@ export default class Button extends React.Component {
     render() {
         const buttonStyle = {
             backgroundColor: this.props.backgroundColor,
-            padding: "10px",
             borderRadius: "8px",
             padding: "15px",
             border: "none"
@@ -27,8 +26,8 @@ export default class Button extends React.Component {
                 }
             }}
         >
-            <FontAwesomeIcon icon={this.props.icon} style={{marginRight: "5px"}}/>
-            {this.props.text}            
+            <FontAwesomeIcon icon={this.props.icon} style={{marginRight: "10px"}}/>
+            {this.props.text}
         </button>);
     }
 };

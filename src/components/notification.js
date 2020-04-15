@@ -8,11 +8,11 @@ class Notification extends Component {
 
     render() {
         const {description, type, title, icon, hideHandle} = this.props;
-        const widthOpacity = type ? type : "gone";
+        const typeClass = type ? "bg-" + type : "";
 
         return (
             <div
-                className={"notification-wrapper" + " pointer flex overflow-hidden " + widthOpacity}
+                className={"notification-wrapper pointer flex overflow-hidden " + typeClass}
                 onClick={(e) => {
                     if (hideHandle) hideHandle(e);
                 }}
@@ -30,7 +30,7 @@ class Notification extends Component {
                 </div>
                 <div className="notification-text-wrapper grow-1 stretch column">
                     <h3 className="notification-title stretch description">{title}</h3>
-                    <span className="stretch"> {description} </span>
+                    <span className="stretch margin-b-5"> {description} </span>
                 </div>
             </div>
         );

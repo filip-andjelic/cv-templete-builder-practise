@@ -21,41 +21,12 @@ export default class App extends React.Component {
             isRemembered: Utility.getCookie("remembered"),
             userEmail: Utility.getCookie("email"),
             password: Utility.getCookie("password"),
-            description: "This is message to our team. Don't give up!!!",
-            title: "IMPORTANT",
-            type: "alertColor",
+            description: "We had issue with reading data from our server, because it is on fire. Sorry for the inconvenience!",
+            title: "Fatal Error on Server",
+            type: "info-1",
             showNotification: true
         };
     }
-
-    // changeMessage = () => {
-    //   const alert = ["IMPORTANT", "HONEST", "RELAX"];
-    //   const a = Math.floor(Math.random() * 3);
-
-    //   this.colorMeassagePicker(alert[a]);
-    // };
-    // colorMeassagePicker(alert) {
-    //   if (alert == "IMPORTANT") {
-    //     this.setState({
-    //       tittle: alert,
-    //       description: "This is message to our team. Don't give up!!!",
-    //       type: "alertColor",
-    //     });
-    //   } else if (alert == "HONEST") {
-    //     this.setState({
-    //       description:
-    //         "Team, you are on the right way!!! Little more and you gona make some awesome things!!!",
-    //       type: "midAlert",
-    //       tittle: alert,
-    //     });
-    //   } else if (alert == "RELAX") {
-    //     this.setState({
-    //       description: "YOU ARE ALMOST DONE!!! CONGRATULATION!!!",
-    //       type: "infoAlert",
-    //       tittle: alert,
-    //     });
-    //   }
-    // }
 
     render() {
         const component = this;

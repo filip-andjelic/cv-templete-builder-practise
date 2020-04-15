@@ -23,7 +23,8 @@ export default class App extends React.Component {
             password: Utility.getCookie("password"),
             description: "This is message to our team. Don't give up!!!",
             title: "IMPORTANT",
-            type: "alertColor"
+            type: "alertColor",
+            showNotification: true
         };
     }
 
@@ -68,13 +69,15 @@ export default class App extends React.Component {
 
         return (
             <div id="App" className="grow-1 flex">
-                <Notification
-                    icon="fa fa-cloud"
-                    title={title}
-                    type={type}
-                    duration={() => this.setState({type: ""})}
-                    description={description}
-                />
+                {
+                    !!this.state.showNotification && (<Notification
+                        icon="sign-in-alt"
+                        title={title}
+                        type={type}
+                        hideHandle={() => this.setState({showNotification: false})}
+                        description={description}
+                    />)
+                }
                 <Router>
                     <Sidebar
                         userEmail={this.state.userEmail}

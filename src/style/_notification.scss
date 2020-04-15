@@ -4,34 +4,28 @@
   border: 1px solid red;
   top: 15px;
   right: 15px;
-  padding: 35px;
   color: #ffffff;
-  transition: 2s;
-  width: 50%;
+  transition: 0.6s;
   text-align: center;
+  max-width: 40%;
 
-  .tittle-wraper {
-    display: flex;
-    justify-content: space-between;
-    margin: 0 0 20px 0;
-
-    .tittle {
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .descripton {
-      font-size: 13px;
-    }
+  .notification-icon-wrapper {
+    width: 110px;
+    min-height: 100%;
+    background-color: #e3e3e359;
+  }
+  .notification-text-wrapper {
+    padding: 15px 25px;
+  }
+  .notification-title {
+    margin-bottom: 10px;
   }
 }
-// KAD IMA TYPE U STEJTU ONDA OVO
 .alertColor {
-  transition-delay: 2s;
+  transition-delay: 0.2s;
   opacity: 1;
   background: #e40000d4;
 }
-// A KAD NEMA ONDA GONE
 .gone {
   opacity: 0;
 }

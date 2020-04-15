@@ -6,11 +6,15 @@ import {
     Route,
 } from "react-router-dom";
 // Internal dependencies
+import "../style/application.scss";
 import LandingScreen from "./LandingScreen";
 import Sidebar from './sidebar';
 import {Utility} from "../services/utility.service";
-import "../style/application.scss";
 import UserData from "./userData";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+
+library.add(fas);
 
 export default class App extends React.Component {
     constructor(props) {

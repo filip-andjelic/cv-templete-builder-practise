@@ -1,7 +1,6 @@
 // External dependencies
 import React from "react";
 import Button from "./button";
-import StoredData from "./StoredData";
 // Internal dependencies
 
 
@@ -429,7 +428,6 @@ export default class UserData extends React.Component {
         return (
             <div className="flex wrap">
                 {infoInputs}
-                <StoredData data={this.data}/>
             </div>
 
         )

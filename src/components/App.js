@@ -10,6 +10,7 @@ import LandingScreen from "./LandingScreen";
 import Sidebar from './sidebar';
 import {Utility} from "../services/utility.service";
 import "../style/application.scss";
+import UserData from "./userData";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -42,6 +43,9 @@ export default class App extends React.Component {
                         <div>
                             TEMPLATES SCREEN
                         </div>
+                    </Route>
+                    <Route exact path="/user-data">
+                        <UserData/>
                     </Route>
                     <Route exact path="/">
                         <LandingScreen data={messages} test={'test'}/>

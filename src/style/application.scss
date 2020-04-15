@@ -4,3 +4,27 @@
 @import "layout";
 @import "text";
 @import "tooltip";
+::placeholder {
+  color: #000;
+}
+textarea:focus ~ .floating-label,
+textarea:valid ~ .floating-label,
+input:focus ~ .floating-label,
+input:valid ~ .floating-label{
+  top: 9px;
+  bottom: 10px;
+  left: 30px;
+  font-size: 11px;
+  opacity: 1;
+  background-color: #fff;
+  height: fit-content;
+  padding: 0 10px;
+  border-radius: 5px 5px 0 0;
+}
+.floating-label {
+  position: absolute;
+  pointer-events: none;
+  left: 35px;
+  top: 30px;
+  transition: 0.2s ease all;
+}

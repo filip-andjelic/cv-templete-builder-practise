@@ -6,8 +6,6 @@ import {Utility} from "../services/utility.service";
 import Button from './button';
 import "../styles/logInForm.css";
 import TooltipWrapper from "./tooltip.wrapper";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-
 
 export default class LogInForm extends React.Component {
     constructor(props) {
@@ -140,9 +138,9 @@ export default class LogInForm extends React.Component {
                     <Button
                         icon="user-plus"
                         text="Sign Up"
-                        backgroundColor="#ff000000"
+                        backgroundColor="transparent"
                         handleClick={() => {
-                            this.loginAttempt();
+                            //this.singupAttempt();
                         }}
                     />
                     <Button

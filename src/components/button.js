@@ -17,6 +17,7 @@ export default class Button extends React.Component {
             padding: "15px",
             border: "none"
         };
+
         return (<button
             style={buttonStyle}
             className="uppercase quicksand"
@@ -26,7 +27,9 @@ export default class Button extends React.Component {
                 }
             }}
         >
-            <FontAwesomeIcon icon={this.props.icon} style={{marginRight: "10px"}}/>
+            {
+                !!this.props.icon && (<FontAwesomeIcon icon={this.props.icon} style={{marginRight: "10px"}}/>)
+            }
             {this.props.text}
         </button>);
     }

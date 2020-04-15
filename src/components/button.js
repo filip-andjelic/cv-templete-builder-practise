@@ -20,7 +20,7 @@ export default class Button extends React.Component {
 
         return (<button
             style={buttonStyle}
-            className="uppercase quicksand"
+            className="uppercase quicksand flex center pointer"
             onClick={() => {
                 if (this.props.handleClick) {
                     this.props.handleClick();
@@ -28,9 +28,15 @@ export default class Button extends React.Component {
             }}
         >
             {
-                !!this.props.icon && (<FontAwesomeIcon icon={this.props.icon} style={{marginRight: "10px"}}/>)
+                !!this.props.icon && (<FontAwesomeIcon
+                    icon={this.props.icon}
+                    style={{
+                        marginRight: "10px",
+                        fontSize: '20px'
+                    }}
+                />)
             }
-            {this.props.text}
+            <strong>{this.props.text}</strong>
         </button>);
     }
 };

@@ -9,18 +9,16 @@ class Notification extends Component {
     const { description, type, tittle, icon, duration } = this.props;
     const widthOpacity = type ? type : "gone";
     return (
-      !!description && (
-        <div
-          className={"notification-wrapper" + " " + widthOpacity}
-          onClick={duration}
-        >
-          <div className="tittle-wraper">
-            <div className="description">{tittle}</div>
-            <i className={icon}></i>
-          </div>
-          <div> {description} </div>
+      <div
+        className={"notification-wrapper" + " " + widthOpacity}
+        onClick={duration}
+      >
+        <div className="tittle-wraper">
+          <div className="description">{tittle}</div>
+          <i className={icon}></i>
         </div>
-      )
+        <div> {description} </div>
+      </div>
     );
   }
 }

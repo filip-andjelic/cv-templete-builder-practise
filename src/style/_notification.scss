@@ -27,6 +27,7 @@
 }
 // KAD IMA TYPE U STEJTU ONDA OVO
 .alertColor {
+  transition-delay: 2s;
   opacity: 1;
   background: #e40000d4;
 }
@@ -40,7 +41,7 @@
   color: #000000;
 }
 .infoAlert {
-  background: rgba(0, 0, 255, 0.815);
+  background: rgba(0, 204, 255, 0.815);
   opacity: 1;
   border: 0;
 }

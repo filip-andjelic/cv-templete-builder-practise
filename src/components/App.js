@@ -16,33 +16,40 @@ export default class App extends React.Component {
       isRemembered: Utility.getCookie("remembered"),
       userEmail: Utility.getCookie("email"),
       password: Utility.getCookie("password"),
+
       description: "This is message to our team. Don't give up!!!",
       tittle: "IMPORTANT",
-      type: "infoAlert"
+      type: "alertColor",
     };
   }
-  colorMeassagePicker(alert) {
-    if (alert == "IMPORTANT") {
-      this.setState({
-        descripton: "This is message to our team. Don't give up!!!",
-        type: "alertColor"
-      });
-    } else if (alert == "HONEST") {
-      this.setState({
-        descripton:
-          "Team, you are on the right way!!! Little more and you gona make some awesome things!!!",
-        type: "midAlert"
-      });
-    } else if (alert == "RELAX") {
-      this.setState({
-        descripton: "YOU ARE ALMOST DONE!!!CONGRATULATION!!!",
-        type: "infoAlert"
-      });
-    }
-  }
-  removeNotification() {
-    this.setState({ type: "" });
-  }
+  // changeMessage = () => {
+  //   const alert = ["IMPORTANT", "HONEST", "RELAX"];
+  //   const a = Math.floor(Math.random() * 3);
+
+  //   this.colorMeassagePicker(alert[a]);
+  // };
+  // colorMeassagePicker(alert) {
+  //   if (alert == "IMPORTANT") {
+  //     this.setState({
+  //       tittle: alert,
+  //       description: "This is message to our team. Don't give up!!!",
+  //       type: "alertColor",
+  //     });
+  //   } else if (alert == "HONEST") {
+  //     this.setState({
+  //       description:
+  //         "Team, you are on the right way!!! Little more and you gona make some awesome things!!!",
+  //       type: "midAlert",
+  //       tittle: alert,
+  //     });
+  //   } else if (alert == "RELAX") {
+  //     this.setState({
+  //       description: "YOU ARE ALMOST DONE!!! CONGRATULATION!!!",
+  //       type: "infoAlert",
+  //       tittle: alert,
+  //     });
+  //   }
+  // }
 
   render() {
     const component = this;
@@ -52,7 +59,7 @@ export default class App extends React.Component {
     const messages = {
       mainHeader: "Hello friend",
       subHeader:
-        "Ready to impress some HR managers with your astounding online CV"
+        "Ready to impress some HR managers with your astounding online CV",
     };
 
     return (
@@ -61,7 +68,7 @@ export default class App extends React.Component {
           icon="fa fa-cloud"
           tittle={tittle}
           type={type}
-          duration={() => this.removeNotification()}
+          duration={() => this.setState({ type: "" })}
           description={description}
         />
         <Router>
@@ -76,7 +83,11 @@ export default class App extends React.Component {
               <div>TEMPLATES SCREEN</div>
             </Route>
             <Route exact path="/">
-              <LandingScreen data={messages} test={"test"} />
+              <LandingScreen
+                data={messages}
+                test={"test"}
+                changeMessage={this.changeMessage}
+              />
             </Route>
           </Switch>
         </Router>

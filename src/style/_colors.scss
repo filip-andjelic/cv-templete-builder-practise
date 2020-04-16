@@ -98,7 +98,9 @@ $info-2: #00c47b;
   background-color: transparent;
   color: $dark-3;
 }
-
+.bg-transparent-1 {
+  background-color: #ffffffc9;;
+}
 // Classes for handling border color on button
 .button {
   &.bg-dark-3 {

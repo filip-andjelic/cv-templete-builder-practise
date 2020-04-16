@@ -13,7 +13,7 @@ export default class Sidebar extends React.Component {
 
     render() {
         return (
-            <div className="sidebar quicksand column">
+            <div className="sidebar quicksand column box-shadow-right">
                 <Logo/>
                 <AppName/>
                 <LogInForm

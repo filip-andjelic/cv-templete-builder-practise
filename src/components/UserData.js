@@ -47,7 +47,7 @@ export default class UserData extends React.Component {
             skills : [{
                 name : '' ,
                 percent : ''
-            }]
+            }] ,
         };
 
         this.changeInputInfo = this.changeInputInfo.bind ( this );
@@ -58,8 +58,35 @@ export default class UserData extends React.Component {
         this.removeReference = this.removeReference.bind ( this );
         this.updateSocial = this.updateSocial.bind ( this );
         this.updateSocialState = this.updateSocialState.bind ( this );
+        this.createJson = this.createJson.bind ( this )
 
     }
+
+    createJson() {
+        let dataForCv = this.state;
+          delete dataForCv.noReferences;
+          delete dataForCv.noEducation;
+          delete dataForCv.noExperience;
+          delete dataForCv.noSkills;
+          delete dataForCv.noSocial;
+        dataForCv.firstName = dataForCv.firstName[0];
+        dataForCv.lastName = dataForCv.lastName[0];
+        dataForCv.jobTitle = dataForCv.jobTitle[0];
+        dataForCv.address = {
+            street : dataForCv.street[0] ,
+            city : dataForCv.city[0] ,
+            country : dataForCv.country[0]
+        };
+        dataForCv.phone = dataForCv.phone[0];
+        dataForCv.email = dataForCv.email[0];
+        dataForCv.website = dataForCv.website[0];
+
+        delete dataForCv.street;
+        delete dataForCv.city;
+        delete dataForCv.country;
+        this.setState ( { jsonString : dataForCv } )
+    }
+
 
     changeInputInfo(e) {
         let value = e.target.value;
@@ -195,23 +222,50 @@ export default class UserData extends React.Component {
         } );
     }
 
-    removeReference() {
-        let number = this.state.noReferences;
-        let references = this.state.references;
+    removeReference(state) {
+        let referencesFromState = this.state[state];
+        let number;
+        switch (state) {
+            case "references":
+                this.references.pop ();
+                number = this.state.noReferences;
+                this.setState ( {
+                    noReferences : (number - 1)
+                } );
+                break;
+            case "education":
+                this.education.pop ();
+                number = this.state.noEducation;
+                this.setState ( {
+                    noEducation : number - 1
+                } );
+                break;
+            case "experience":
+                this.experience.pop ();
+                number = this.state.noExperience;
+                this.setState ( {
+                    noExperience : number - 1
+                } );
+                break;
+            case "skills" :
+                this.skills.pop ();
+                number = this.state.noSkills;
+                this.setState ( {
+                    noSkills : number - 1
+                } )
+        }
         this.setState ( {
-            references : references
+            [state] : referencesFromState
         } );
-        this.setState ( {
-            noReferences : number - 1
-        } )
     }
 
     renderSocialInput = () => {
         let buttonStyle = {
+            margin : "5px" ,
             position : "relative" ,
             display : "flex" ,
             flexDirection : "column" ,
-            justifyContent : "center"
+            justifyContent : "flex-end"
         };
         let divStyle = { position : "relative" };
         let socialElements = [];
@@ -225,7 +279,10 @@ export default class UserData extends React.Component {
                 }
             }
             socialElements.push (
-                <div className="flex">
+                <div className="flex wrap">
+                    <h3 key={"references-sub-" + socialElements.length}
+                        className="full-width margin-20 bg-transparent">Social #{socialElements.length + 1}</h3>
+
                     <div style={divStyle}>
                         <input
                             type="text"
@@ -258,42 +315,55 @@ export default class UserData extends React.Component {
                 </div>
             )
         }
-        socialElements.push ( <div style={buttonStyle}><Button key={"add-reference" + Math.random ()} text="+"
-                                                               handleClick={() => this.addSocial ()}/>
-        </div> );
+        socialElements.push (
+            <div style={buttonStyle} className={"padding-20"}>
+                <Button
+                    className={"square-add-button "}
+                    backgroundColor={"#00c47b"}
+                    color="#fafafa"
+                    key={"add-reference" + Math.random ()}
+                    icon={"plus"}
+                    handleClick={() => this.addSocial ()
+                    }/>
+            </div> );
         return socialElements;
     };
     renderReferencesInput = (item , style , counter) => {
         let divStyle = { position : "relative" };
         let buttonStyle = {
             position : "relative" ,
+            margin : "5px" ,
             display : "flex" ,
             flexDirection : "column" ,
             justifyContent : "center"
         };
-        let taDivStyle = { position : "relative" , flexGrow : 1 , paddingRight : "30px" };
+        let taDivStyle = { position : "relative" , flexGrow : 1 };
         let textareaStyle = { height : "90px" , width : "-webkit-fill-available" };
         let referencesInputElements = [];
         for (let i = 0; i<this.state[counter]; i++) {
             switch (item) {
                 case "references" :
                     referencesInputElements.push (
-                        <h3 key={"references-sub-" + i} style={style} className="margin-20">Reference #{i + 1}</h3>
+                        <h3 key={"references-sub-" + i} style={style} className="margin-20 bg-transparent">Reference
+                            #{i + 1}</h3>
                     );
                     break;
                 case "experience" :
                     referencesInputElements.push (
-                        <h3 key={"references-sub-" + i} style={style} className="margin-20">Experience #{i + 1}</h3>
+                        <h3 key={"references-sub-" + i} style={style} className="margin-20 bg-transparent">Experience
+                            #{i + 1}</h3>
                     );
                     break;
                 case "education" :
                     referencesInputElements.push (
-                        <h3 key={"references-sub-" + i} style={style} className="margin-20">Education #{i + 1}</h3>
+                        <h3 key={"references-sub-" + i} style={style} className="margin-20 bg-transparent">Education
+                            #{i + 1}</h3>
                     );
                     break;
                 case "skills" :
                     referencesInputElements.push (
-                        <h3 key={"references-sub-" + i} style={style} className="margin-20">Skill #{i + 1}</h3>
+                        <h3 key={"references-sub-" + i} style={style} className="margin-20 bg-transparent">Skill
+                            #{i + 1}</h3>
                     );
                     break;
             }
@@ -344,19 +414,31 @@ export default class UserData extends React.Component {
                 }
             }
         }
-        referencesInputElements.push ( <div style={buttonStyle}><Button key={"add-reference" + Math.random ()} text="+"
-                                                                        handleClick={() => this.addReference ( item )}/>
-        </div> );
-        referencesInputElements.push ( <div style={buttonStyle}><Button key={"remove-reference" + Math.random ()}
-                                                                        text="-"
-                                                                        handleClick={this.removeReference}/></div> );
+        referencesInputElements.push (
+            <div style={buttonStyle}>
+                <Button
+                    key={"add-reference" + Math.random ()}
+                    icon={"plus"}
+                    className={"square-add-button"}
+                    handleClick={() => this.addReference ( item )}
+                />
+            </div> );
+        referencesInputElements.push (
+            <div style={buttonStyle}>
+                <Button
+                    className={"square-remove-button"}
+                    key={"remove-reference" + Math.random ()}
+                    icon="trash-alt"
+                    handleClick={() => this.removeReference ( item )}/>
+            </div> );
         return referencesInputElements;
     };
     data = this.state;
+    jsonString = {};
 
     render() {
         let divStyle = { position : "relative" };
-        let style = { display : "block" , color : "white" , width : "100%" };
+        let style = { display : "block" , width : "100%" };
         let infoObject = this.state;
         let infoInputs = [];
         for (let item in infoObject) {
@@ -373,35 +455,71 @@ export default class UserData extends React.Component {
                     case "noSocial" :
                         continue;
                     case "firstName" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style} className="margin-20">General
-                            Info</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                General Info
+                            </h2> );
                         break;
                     case "facebook" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style} className="margin-20">Social</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                Social
+                            </h2> );
                         break;
                     case "references" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style}
-                                              className="margin-20">References</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                References
+                            </h2> );
                         infoInputs.push ( this.renderReferencesInput ( item , style , "noReferences" ) );
                         continue;
                     case "experience" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style}
-                                              className="margin-20">Experience</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                Experience
+                            </h2> );
                         infoInputs.push ( this.renderReferencesInput ( item , style , "noExperience" ) );
                         continue;
                     case "education" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style}
-                                              className="margin-20">Education</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                Education
+                            </h2> );
                         infoInputs.push ( this.renderReferencesInput ( item , style , "noEducation" ) );
                         continue;
                     case "skills" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style}
-                                              className="margin-20">Skills</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                Skills
+                            </h2> );
                         infoInputs.push ( this.renderReferencesInput ( item , style , "noSkills" ) );
                         continue;
                     case "social" :
-                        infoInputs.push ( <h2 key={item + "heading"} style={style}
-                                              className="margin-20">Social</h2> );
+                        infoInputs.push (
+                            <h2
+                                key={item + "heading"}
+                                style={style}
+                                className="padding-20 bg-theme-main-1 text-center box-shadow-bottom">
+                                Social
+                            </h2> );
                         infoInputs.push ( this.renderSocialInput () );
                         continue;
 
@@ -412,7 +530,7 @@ export default class UserData extends React.Component {
                             type="text"
                             data-label={infoObject[item][1]}
                             data-state={item}
-                            className="normal-text bg-grey-2 input margin-20"
+                            className="normal-text bg-grey-2  input margin-20"
                             key={item + "key"}
                             data-prop={item}
                             onChange={this.changeInputInfo}
@@ -426,8 +544,22 @@ export default class UserData extends React.Component {
         }
 
         return (
-            <div className="flex wrap">
+
+            <div className="flex wrap bg-transparent-1">
                 {infoInputs}
+                <Button
+                    className={"square-add-button "}
+                    backgroundColor={"#00c47b"}
+                    color="#fafafa"
+                    key={"add-reference" + Math.random ()}
+                    icon={"plus"}
+                    handleClick={() => this.createJson ()
+                    }/>
+                <div className={"flex wrap center"} style={{width:"100%"}}>
+                    <code>
+                        <pre className={"flex center wrap"}>{JSON.stringify ( this.state.jsonString , null , 2 )}</pre>
+                    </code>
+                </div>
             </div>
 
         )

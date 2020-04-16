@@ -8,6 +8,9 @@
 ::placeholder {
   color: #000;
 }
+html{
+  scroll-behavior: smooth;
+}
 textarea:focus ~ .floating-label,
 textarea:valid ~ .floating-label,
 input:focus ~ .floating-label,
@@ -17,7 +20,6 @@ input:valid ~ .floating-label{
   left: 30px;
   font-size: 11px;
   opacity: 1;
-  background-color: #fff;
   height: fit-content;
   padding: 0 10px;
   border-radius: 5px 5px 0 0;
@@ -29,3 +31,31 @@ input:valid ~ .floating-label{
   top: 30px;
   transition: 0.2s ease all;
 }
+.square-add-button {
+  color: $light-5;
+  padding: 10px!important;
+  background-color: $info-2;
+  svg {
+    margin:0!important;
+  }
+}
+.square-remove-button {
+  color: $light-5;
+  padding: 10px!important;
+  background-color: $important-3;
+  svg {
+    margin:0!important;
+  }
+}
+.box-shadow-bottom {
+-webkit-box-shadow: -1px 10px 17px -3px rgba(87,82,87,1);
+-moz-box-shadow: -1px 10px 17px -3px rgba(87,82,87,1);
+box-shadow: -1px 10px 17px -3px rgba(87,82,87,1);
+}
+.box-shadow-right {
+  -webkit-box-shadow: 11px 0px 17px -3px rgba(87,82,87,1);
+  -moz-box-shadow: 11px 0px 17px -3px rgba(87,82,87,1);
+  box-shadow: 11px 0px 17px -3px rgba(87,82,87,1);
+}
+
+

@@ -23,4 +23,39 @@ export const Utility = {
 
         return false;
     },
+    isNumber: (n) => {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    },
+    isString: (s) => {
+        return typeof s === 'string';
+    },
+    loopThroughItems: (items, callback) => {
+        for (let itemKey in items) {
+            callback(items[itemKey], itemKey)
+        }
+    },
+    clone: (obj) => {
+        if (obj === null || typeof obj !== "object") {
+            return obj;
+        }
+        if (obj instanceof Date) {
+            return new Date(obj.getTime());
+        }
+        if (Array.isArray(obj)) {
+            let clonedArr = [];
+            obj.forEach(function (element) {
+                clonedArr.push(Utility.clone(element))
+            });
+            return clonedArr;
+        }
+        let clonedObj = new obj.constructor();
+
+        for (let prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                clonedObj[prop] = Utility.clone(obj[prop]);
+            }
+        }
+
+        return clonedObj;
+    },
 };

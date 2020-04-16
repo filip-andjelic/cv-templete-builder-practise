@@ -10,6 +10,8 @@ import UserData from "./userData";
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import Notification from "./notification";
+import {StoreService} from "../services/store.service";
+import {ListenerService} from "../services/listener.service";
 
 library.add(fas);
 
@@ -27,6 +29,34 @@ export default class App extends React.Component {
             icon: "",
             showNotification: false
         };
+
+        StoreService.initialize();
+        this.listener(this);
+    }
+
+    listener(component) {
+        ListenerService.hookOnChange(
+            ListenerService.CHANGE_NAMES.TOGGLE_NOTIFICATION,
+            'App.js',
+            (config) => {
+                let state = {};
+
+                if (config) {
+                    state = {
+                        showNotification: true,
+                        icon: config.icon,
+                        title: config.title,
+                        description: config.description,
+                        type: config.type
+                    };
+                } else {
+                   state = {
+                       showNotification: false
+                   };
+                }
+
+                component.setState(state);
+        });
     }
 
     render() {

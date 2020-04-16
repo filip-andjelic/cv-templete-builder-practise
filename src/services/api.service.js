@@ -1,4 +1,5 @@
 import {ConstantsService} from "./constants.service";
+import {Utility} from "./utility.service";
 
 const urlBase = ConstantsService.URL_BASE;
 const endpointUrls = {
@@ -35,24 +36,26 @@ export const ApiService = {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        }).then((data) => {
-            if (!data) {
-                return false;
-            }
+        })
+            .then(response => response.json())
+            .then((data) => {
+                if (!data) {
+                    return false;
+                }
 
-            return ApiService.prettifyResponse(data);
-        }).catch((error) => {
-            console.error('POST request failed. Error -> ', error);
-        });
+                return ApiService.prettifyResponse(data);
+            }).catch((error) => {
+                console.error('POST request failed. Error -> ', error);
+            });
     },
     prettifyResponse: (data, log) => {
         if (!data) {
             return false;
         }
-        if (UtilService.isNumber(data)) {
+        if (Utility.isNumber(data)) {
             return data;
         }
-        if (UtilService.isString(data)) {
+        if (Utility.isString(data)) {
             data = data
                 .replace(/\\"/g, "'").replace(/\\'/g, "'")
                 .replace(/""{/g, '{').replace(/"{/g, '{')
@@ -68,8 +71,8 @@ export const ApiService = {
         }
         let prettyData = {};
 
-        UtilService.loopThroughItems(data, (property, key) => {
-            if (UtilService.isString(key)) {
+        Utility.loopThroughItems(data, (property, key) => {
+            if (Utility.isString(key)) {
                 key = key.replace(/\\"/g, '').replace(/\\'/g, '');
             }
 
@@ -80,9 +83,7 @@ export const ApiService = {
     },
     endpoints: {
         loginAttempt: (data) => {
-            return ApiService.postRequest(endpointUrls.loginAttempt, data).then((response) => {
-
-            });
+            return ApiService.postRequest(endpointUrls.loginAttempt, {data: data});
         }
     }
 };

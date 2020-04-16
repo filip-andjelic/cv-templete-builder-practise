@@ -6,6 +6,6 @@
 export const ConstantsService = {
     PROD_MODE: false,
     URL_BASE: 'http://oykos.me/api/online-hub/',
-    LOCAL_STORAGE_KEY: 'oykosHubCvTemaplateBuilderStorage',
+    LOCAL_STORAGE_KEY: 'oykosHubCvTemplateBuilderStorage',
     DEBUG_LOG_MODE: 0,
 };

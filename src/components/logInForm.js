@@ -7,6 +7,8 @@ import Button from './button';
 import "../styles/logInForm.css";
 import TooltipWrapper from "./tooltip.wrapper";
 import {ApiService} from "../services/api.service";
+import {StoreService} from "../services/store.service";
+import {ListenerService} from "../services/listener.service";
 
 export default class LogInForm extends React.Component {
     constructor(props) {
@@ -65,6 +67,37 @@ export default class LogInForm extends React.Component {
         ApiService.endpoints.loginAttempt({
             email: this.state.emailValue,
             password: this.state.password
+        }).then((response) => {
+            if (!response || response.errorMessage) {
+                const notificationConfig = {
+                    icon: "exclamation-triangle",
+                    title: "Login attempt failed!",
+                    description: "Please provide correct credentials. If you are experiencing issues on our side please write to us via complain@oykos.me",
+                    type: "important-3"
+                };
+
+                ListenerService.triggerHook(
+                    ListenerService.CHANGE_NAMES.TOGGLE_NOTIFICATION,
+                    notificationConfig
+                );
+
+                return;
+            }
+            if (response && response.data && response.data.user) {
+                const notificationConfig = {
+                    icon: "check-double",
+                    title: "Log In was successful!",
+                    description: "Thanks for using our CV Template builder tool. Hope you will enjoy it!",
+                    type: "info-2"
+                };
+
+                ListenerService.triggerHook(
+                    ListenerService.CHANGE_NAMES.TOGGLE_NOTIFICATION,
+                    notificationConfig
+                );
+
+                StoreService.updateStoreProperty('user', response.data.user);
+            }
         });
     }
 

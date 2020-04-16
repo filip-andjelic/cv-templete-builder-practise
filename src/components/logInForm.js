@@ -4,7 +4,6 @@ import {Redirect} from "react-router-dom";
 // Internal dependencies
 import {Utility} from "../services/utility.service";
 import Button from './button';
-import "../styles/logInForm.css";
 import TooltipWrapper from "./tooltip.wrapper";
 import {ApiService} from "../services/api.service";
 import {StoreService} from "../services/store.service";
@@ -42,6 +41,8 @@ export default class LogInForm extends React.Component {
     }
 
     loginAttempt() {
+        const component = this;
+
         if (!this.state.emailValue) {
             this.setState({
                 emailTooltip: 'Please enter e-mail address!'
@@ -81,6 +82,8 @@ export default class LogInForm extends React.Component {
                     notificationConfig
                 );
 
+                StoreService.updateStoreData(StoreService.getEmptyData());
+
                 return;
             }
             if (response && response.data && response.data.user) {
@@ -91,12 +94,17 @@ export default class LogInForm extends React.Component {
                     type: "info-2"
                 };
 
-                ListenerService.triggerHook(
-                    ListenerService.CHANGE_NAMES.TOGGLE_NOTIFICATION,
-                    notificationConfig
-                );
+                component.setState({
+                    redirectUrl: '/templates'
+                }, () => {
+                    ListenerService.triggerHook(
+                        ListenerService.CHANGE_NAMES.TOGGLE_NOTIFICATION,
+                        notificationConfig
+                    );
 
-                StoreService.updateStoreProperty('user', response.data.user);
+                    StoreService.updateStoreProperty('loginSuccess', true);
+                    StoreService.updateStoreProperty('user', response.data.user);
+                });
             }
         });
     }
@@ -123,7 +131,7 @@ export default class LogInForm extends React.Component {
         return (
             <div className="log-in-form margin-50">
                 {
-                    this.state.redirectUrl && <Redirect to={this.state.redirectUrl}/>
+                    !!this.state.redirectUrl && (<Redirect to={this.state.redirectUrl}/>)
                 }
 
                 <TooltipWrapper

@@ -1,7 +1,6 @@
 // External dependencies
 import React from "react";
 // Internal dependencies
-import "../styles/logo.css";
 
 export default class Logo extends React.Component {
     constructor(props) {

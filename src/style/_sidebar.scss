@@ -1,0 +1,13 @@
+.sidebar {
+  max-width: 30%;
+  min-width: 350px;
+  background-color: #ffffffc9;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 1;
+
+  &.tiny {
+    min-width: 120px;
+    max-width: 120px;
+  }
+}

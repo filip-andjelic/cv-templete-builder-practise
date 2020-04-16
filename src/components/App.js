@@ -50,13 +50,13 @@ export default class App extends React.Component {
                         type: config.type
                     };
                 } else {
-                   state = {
-                       showNotification: false
-                   };
+                    state = {
+                        showNotification: false
+                    };
                 }
 
                 component.setState(state);
-        });
+            });
     }
 
     render() {
@@ -69,41 +69,42 @@ export default class App extends React.Component {
                 "Ready to impress some HR managers with your astounding online CV",
         };
 
-        return (
-            <div id="App" className="grow-1 flex">
-                {
-                    !!this.state.showNotification && (<Notification
-                        icon={icon}
-                        title={title}
-                        type={type}
-                        hideHandle={() => this.setState({showNotification: false})}
-                        description={description}
-                    />)
-                }
-                <Router>
-                    <Sidebar
-                        userEmail={this.state.userEmail}
-                        isRemembered={this.state.isRemembered}
-                        password={this.state.password}
-                    />
-                    <Switch>
-                        <Route exact path="/templates">
-                            <div>
-                                TEMPLATES SCREEN
-                            </div>
-                        </Route>
-                        <Route exact path="/user-data">
-                            <UserData/>
-                        </Route>
-                        <Route exact path="/">
-                            <LandingScreen
-                                data={messages}
-                                test={"test"}
-                                changeMessage={this.changeMessage}
-                            />
-                        </Route>
-                    </Switch>
-                </Router>
-            </div>);
+        return (<div id="App" className="grow-1 flex">
+            {
+                !!this.state.showNotification && (<Notification
+                    icon={icon}
+                    title={title}
+                    type={type}
+                    hideHandle={() => this.setState({showNotification: false})}
+                    description={description}
+                />)
+            }
+
+            <Router>
+                <Sidebar
+                    userEmail={this.state.userEmail}
+                    isRemembered={this.state.isRemembered}
+                    password={this.state.password}
+                />
+
+                <Switch>
+                    <Route exact path="/templates">
+                        <div>
+                            TEMPLATES SCREEN
+                        </div>
+                    </Route>
+                    <Route exact path="/user-data">
+                        <UserData/>
+                    </Route>
+                    <Route exact path="/">
+                        <LandingScreen
+                            data={messages}
+                            test={"test"}
+                            changeMessage={this.changeMessage}
+                        />
+                    </Route>
+                </Switch>
+            </Router>
+        </div>);
     }
 };

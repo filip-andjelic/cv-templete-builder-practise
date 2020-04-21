@@ -86,7 +86,7 @@ export default class LogInForm extends React.Component {
 
                 return;
             }
-            if (response && response.data && response.data.user) {
+            if (response && response.data && response.data.entry) {
                 const notificationConfig = {
                     icon: "check-double",
                     title: "Log In was successful!",
@@ -103,7 +103,7 @@ export default class LogInForm extends React.Component {
                     );
 
                     StoreService.updateStoreProperty('loginSuccess', true);
-                    StoreService.updateStoreProperty('user', response.data.user);
+                    StoreService.updateStoreProperty('user', response.data.entry);
                 });
             }
         });
